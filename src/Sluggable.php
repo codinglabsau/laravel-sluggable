@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 trait Sluggable
 {
-    public static function findBySlug(string $slug): self
+    public static function findBySlug(string $slug): ?self
     {
         return self::where('slug', strtolower($slug))->first();
     }
