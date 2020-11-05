@@ -11,9 +11,9 @@ trait Sluggable
         return self::where('slug', strtolower($slug))->first();
     }
 
-    public function setNameAttribute(string $value): void
+    public function setNameAttribute(?string $value): void
     {
         $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+        $this->attributes['slug'] = Str::slug($value) ?: null;
     }
 }
